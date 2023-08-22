@@ -47,12 +47,13 @@ const files = [
   // More files...
 ]
 
-const AlbumList = () => {
+const AlbumList = ({data}) => {
+  console.log(data);
 
   return (
            <div className='hero'>
     <div className='flex-1 pt-20 padding-x'>
-    a list of albums
+    a list of albums{JSON.stringify(data)}
         <ul role="list" className="grid grid-cols-2 gap-x-3 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-3 xl:gap-x-8">
         {files.map((file) => (
             <li key={file.albumId} className="relative">
