@@ -4,6 +4,7 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import CustomButton from './CustomButton';
 import AlbumList from './AlbumList';
+import PictureList from './PictureList';
 
 export {
   Hero,
@@ -11,4 +12,5 @@ export {
   Footer,
   CustomButton,
   AlbumList,
+  PictureList,
 };

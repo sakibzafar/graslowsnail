@@ -1,3 +1,4 @@
+// sets page layout for project
 import './globals.css'
 import { Navbar, Footer } from '@/components';
 
