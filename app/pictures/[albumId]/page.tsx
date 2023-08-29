@@ -1,9 +1,16 @@
 import { PictureList } from '@/components';
 
-export function PicturesInAlbum() {
+export function PicturesInAlbum({
+  params: { albumId },
+}: {
+  params: {
+    albumId: string;
+  };
+}){
+
   return (
     <div className='overflow-hidden'>
-        < PictureList />
+        < PictureList albumId={albumId} />
     </div>
   );
 }

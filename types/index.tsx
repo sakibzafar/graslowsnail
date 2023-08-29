@@ -9,4 +9,3 @@ export interface CustomButtonProps {
     btnType?: 'button' | 'submit';
 };
 
-
