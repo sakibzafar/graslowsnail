@@ -1,11 +1,23 @@
 // a interface specifies how a specific structure should look like, what variables and values should it have
-import { MouseEventHandler } from 'react';
+interface Picture {
+  _id: string;
+  title: string;
+  imageURL: string;
+  description: string;
+  album_id: string;
+  printSize: string;
+  price: number;
+  isSold: boolean;
+  albumThumbnail: boolean;
+}
 
-export interface CustomButtonProps {
-    title: string;
-    containerStyles?: string;
-    handleClick?:
-    MouseEventHandler<HTMLButtonElement>;
-    btnType?: 'button' | 'submit';
-};
+interface PictureListProps {
+  albumId: string;
+}
 
+interface SimplePicturePageProps {
+  params: {
+    albumId: string;
+    pictureId: string;
+  };
+}
