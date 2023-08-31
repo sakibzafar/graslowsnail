@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { CheckoutButton } from '@/components';
 
 // Define the main component, accepting albumId and pictureId as props.
 const SimplePicturePage: React.FC<SimplePicturePageProps> = ({
@@ -74,6 +75,8 @@ const SimplePicturePage: React.FC<SimplePicturePageProps> = ({
         {/* Using conditional styling for the status based on whether the picture is sold or not */}
         <p className={`text-lg font-medium mb-2 ${picture.isSold ? 'text-red-500' : 'text-green-500'}`}>Status: {picture.isSold ? 'Sold' : 'Available'}</p>
       </div>
+        would you like to own this picture? checkout bellow!
+        < CheckoutButton />
     </div>
   );
 };

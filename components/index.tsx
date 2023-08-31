@@ -5,6 +5,7 @@ import Footer from './Footer';
 import CustomButton from './CustomButton';
 import AlbumList from './AlbumList';
 import PictureList from './PictureList';
+import CheckoutButton from './CheckoutButton';
 
 export {
   Hero,
@@ -13,4 +14,5 @@ export {
   CustomButton,
   AlbumList,
   PictureList,
+  CheckoutButton,
 };
