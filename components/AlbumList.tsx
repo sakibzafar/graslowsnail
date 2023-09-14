@@ -4,8 +4,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 // Constants for image dimensions
-const IMAGE_WIDTH = 500;
-const IMAGE_HEIGHT = 500;
+const IMAGE_WIDTH = 966;
+const IMAGE_HEIGHT = 641;
 
 const AlbumList = () => {
   
@@ -45,24 +45,16 @@ const AlbumList = () => {
   };
 
   return (
-    <div className='hero'>
-      <div className='flex-1 pt-20 padding-x'>
-        <p>a list of pictures with the albumThumbnail attribute set to true.</p>
+    <div className=''>
+      <div className='flex-1 pt-20 padding-x hero'>
         {/* Grid layout for pictures */}
-        <ul role="list" className="grid grid-cols-2 gap-x-3 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-3 xl:gap-x-8">
+        <ul role="list" className="">
           {/* Map through pictures to display each one */}
           {pictures?.map((picture) => (
-            <li key={picture._id} className="relative">
-              {/* Link to picture details */}
+            <li key={picture._id} className="relative group my-7 mx-16"> {/* Add group class */}
               <Link href={`/pictures/${picture.album_id}`} passHref>
-                {/* Image container */}
-                <div className="group aspect-h-7 aspect-w-10 block w-full overflow-hidden rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
-                  {/* Show loading spinner until image is loaded */}
-                  {!loadedImages[picture._id] && 
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-indigo-500"></div>
-                    </div>
-                  }
+                {/* Hover effects for the image */}
+                <div className="relative hover:opacity-70 transform hover:scale-105 transition-all duration-300"> 
                   {/* Actual Image */}
                   <Image 
                     src={picture.imageURL} 
@@ -71,15 +63,13 @@ const AlbumList = () => {
                     height={IMAGE_HEIGHT}
                     onLoadingComplete={() => handleImageLoad(picture._id)}
                   />
-                  {/* Invisible button overlay for accessibility */}
-                  <button type="button" className="absolute inset-0 focus:outline-none">
-                    <span className="sr-only">View details for {picture.album_id}</span>
-                  </button>
+                    {/* Hover effect for the overlay */}
+                  <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-300">
+                  {/* Album ID Overlayed on the Image */}
+                    <div className="text-center text-white text-[40px] font-normal ">{picture.album_id}</div>
+                  </div>
                 </div>
               </Link>
-              {/* Picture metadata */}
-              <p className="pointer-events-none mt-2 block truncate text-sm font-medium text-gray-900">{picture.album_id}</p>
-              <p className="pointer-events-none block text-sm font-medium text-gray-500">{picture.description}</p>
             </li>
           ))}
         </ul>

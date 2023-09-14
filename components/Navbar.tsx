@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import CustomButton from './CustomButton';
 
 const Navbar = () => {
     return (
@@ -9,12 +8,6 @@ const Navbar = () => {
                 <Link href='/' className='flex justify-center items-center '>
                     <h1 className='text-2xl font-bold navbar-h1'>GRASLOWSNAIL</h1>
                 </Link>
-
-                <CustomButton
-                    title='Sign In'
-                    btnType='button'
-                    containerStyles='text-primary-black rounded-full bg-white main-w-[130px]'
-                />
             </nav>
         </header>
     );
