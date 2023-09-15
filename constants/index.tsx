@@ -2,9 +2,9 @@ export const footerLinks = [
   {
     title: "Socials",
     links: [
-      { title: "Instagram", url: "/" },
-      { title: "Twitter", url: "/" },
-      { title: "Git Hub", url: "/" },
+      { title: "Instagram", url: "https://www.instagram.com/graslowsnail/" },
+      { title: "Twitter", url: "https://twitter.com/graslowsnail" },
+      { title: "Git Hub", url: "https://github.com/graslowsnail" },
     ],
   },
 ];
