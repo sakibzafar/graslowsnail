@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { CheckoutButton } from '@/components';
 
+import { fetchPictureData } from '@/util';
+
 // Define the main component, accepting albumId and pictureId as props.
 const SimplePicturePage: React.FC<SimplePicturePageProps> = ({
   params: { albumId, pictureId }
@@ -15,24 +17,17 @@ const SimplePicturePage: React.FC<SimplePicturePageProps> = ({
 
   // Use the useEffect hook to fetch data when the component mounts.
   useEffect(() => {
-    // Asynchronous function to fetch picture data.
-    const fetchData = async () => {
+    async function loadPictureData() {
       try {
-        // Fetching the data.
-        const response = await fetch(`https://qt2krlwyyg.execute-api.us-east-2.amazonaws.com/picture/${albumId}/${pictureId}`);
-        const data = await response.json();
-
-        // Setting the fetched picture data to state.
-        setPicture(data.Item);
-        setLoading(false);  // Set loading to false after data is fetched.
+        const picData = await fetchPictureData(albumId, pictureId);
+        setPicture(picData);
+        setLoading(false);
       } catch (error) {
-        console.error('Error fetching data:', error);
-        setLoading(false);  // Set loading to false if an error occurs.
+        console.error('Error fetching picture data:', error);
+        setLoading(false);
       }
-    };
-
-    // Call the fetchData function.
-    fetchData();
+    }
+      loadPictureData();
   }, []);
 
   // Show loading spinner if the data is still loading.

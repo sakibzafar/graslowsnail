@@ -4,6 +4,8 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { fetchPicturesForAlbum } from '@/util'
+
 // Constants for image dimensions
 const IMAGE_WIDTH = 500;
 const IMAGE_HEIGHT = 500;
@@ -19,23 +21,12 @@ const PictureList: React.FC<PictureListProps> = ({ albumId }) => {
 
   // Fetch pictures when component mounts
   useEffect(() => {
-    async function fetchPictures() {
-      try {
-        // Fetch pictures related to a specific album ID
-        const response = await fetch(`https://qt2krlwyyg.execute-api.us-east-2.amazonaws.com/pictureList/${albumId}`);
-        
-        // Parse the response
-        const result = await response.json();
-        
-        // Set pictures in the state
-        setPictures(result.Items);
-      } catch (error) {
-        console.error("Error fetching pictures:", error);
-      }
-    }
-
-    fetchPictures();
-  }, []);
+  async function loadPictures() {
+    const pics = await fetchPicturesForAlbum(albumId);
+    setPictures(pics);
+  }
+  loadPictures();
+}, []);
 
   // Function to update image loading status
   const handleImageLoad = (id: string) => {
