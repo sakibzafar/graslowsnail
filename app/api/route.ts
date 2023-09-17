@@ -23,8 +23,8 @@ export const POST = async (req: NextApiRequest) => {
       // Define the mode of the checkout session (in this case, "payment")
       mode: 'payment',
       // Define URLs where users should be redirected upon success and cancellation
-      success_url: "http://localhost:3000/success",
-      cancel_url: "http://localhost:3000/about",
+      success_url: "http://localhost:3000/paymentSuccessful",
+      cancel_url: "http://localhost:3000/paymentFailed",
     });
     
     // If the session is successfully created, return a JSON response with the session ID
