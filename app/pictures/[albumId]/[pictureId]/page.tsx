@@ -50,29 +50,31 @@ const SimplePicturePage: React.FC<SimplePicturePageProps> = ({
   // Main return function to display picture information.
   return (
     <div className="flex flex-col items-center justify-center pt-20 px-6">
-      <h1 className="text-4xl font-bold mb-6">{picture.title}</h1>
-      <div className="relative w-1/2 h-1/2">
-        {/* Use Next.js Image component for optimized image loading */}
-        <Image
-          src={picture.imageURL}
-          alt={picture.description}
-          width={500}
-          height={500}
-          priority={true} // Loads the image with high priority
-        />
-      </div>
-      <div className="mt-6 text-center">
-        {/* Displaying additional picture information */}
-        <p className="text-lg font-medium mb-2">Description: {picture.description}</p>
-        <p className="text-lg font-medium mb-2">Album: {picture.album_id}</p>
-        <p className="text-lg font-medium mb-2">Print Size: {picture.printSize}</p>
-        <p className="text-lg font-medium mb-2">Price: ${picture.price}</p>
-        {/* Using conditional styling for the status based on whether the picture is sold or not */}
-        <p className={`text-lg font-medium mb-2 ${picture.isSold ? 'text-red-500' : 'text-green-500'}`}>Status: {picture.isSold ? 'Sold' : 'Available'}</p>
-      </div>
-        would you like to own this picture? checkout bellow!
-        < CheckoutButton />
+    <h1 className="text-4xl font-bold mb-6">{picture.title}</h1>
+    <div className="">
+      {/* Use Next.js Image component for optimized image loading */}
+      <Image
+        src={picture.imageURL}
+        alt={picture.description}
+        width={988} // Adjust this value according to your needs
+        height={800} // Adjust this value according to your needs
+        priority={true} // Loads the image with high priority
+      />
     </div>
+    <div className="mt-6 text-center">
+      {/* Displaying additional picture information */}
+      <p className="text-lg font-medium mb-2">Description: {picture.description}</p>
+      <p className="text-lg font-medium mb-2">Album: {picture.album_id}</p>
+      <p className="text-lg font-medium mb-2">Print Size: {picture.printSize}</p>
+      <p className="text-lg font-medium mb-2">Price: ${picture.price}</p>
+       {/* Using conditional styling for the status based on whether the picture is sold or not */}
+       <p className={`text-lg font-medium mb-2 ${picture.isSold ? 'text-red' : 'text-green'}-${500}`}>Status: {picture.isSold ? 'Sold' : 'Available'}</p> 
+       <p>would you like to own this picture? </p>
+       <p className='mb-3'>checkout below!</p>
+     </div> 
+     <CheckoutButton />
+</div>
+
   );
 };
 
