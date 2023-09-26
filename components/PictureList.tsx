@@ -3,12 +3,13 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Link from 'next/link';
+import Masonry from 'react-masonry-css';
 
 import { fetchPicturesForAlbum } from '@/util'
 
 // Constants for image dimensions
-const IMAGE_WIDTH = 500;
-const IMAGE_HEIGHT = 500;
+const IMAGE_WIDTH = 700;
+const IMAGE_HEIGHT = 700;
 
 // PictureList component definition with TypeScript props
 const PictureList: React.FC<PictureListProps> = ({ albumId }) => {
@@ -36,44 +37,39 @@ const PictureList: React.FC<PictureListProps> = ({ albumId }) => {
     }));
   };
 
+ // Define the breakpoint columns object to control the number of columns at different screen sizes.
+  const breakpointColumnsObj = {
+    default: 2, 
+    1100: 2, // screen sizes this has 2 cols at pixle with 1000
+    700: 2,
+    550: 1
+  };
+
+
   return (
     <div className='hero'>
       <div className='flex-1 pt-20 padding-x hero'>
-        {/* Grid layout for pictures */}
-        <ul role="list" className="grid grid-cols-2 gap-4">
-          {/* Map through pictures to display each one */} 
+        <Masonry
+          breakpointCols={breakpointColumnsObj}
+          className="my-masonry-grid"
+          columnClassName="my-masonry-grid_column"
+        >
           {pictures?.map((picture) => (
-            <li key={picture._id} className="relative">
-              {/* Link to picture details */}
+            <div key={picture._id} className="relative">
               <Link href={`/pictures/${picture.album_id}/${picture._id}`} passHref>
-                {/* Image container */}
-
-                  {/* Show loading spinner until image is loaded 
-                  {!loadedImages[picture._id] && 
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-indigo-500"></div>
-                    </div>
-                  }
-                  */}
-                  {/* Actual Image */}
-                  <Image 
-                    priority={true}
-                    src={picture.imageURL} 
-                    alt={picture.description} 
-                    width={IMAGE_WIDTH} 
-                    height={IMAGE_HEIGHT}
-                    onLoadingComplete={() => handleImageLoad(picture._id)}
-                  />
-
+                {/* Actual Image */}
+                <Image 
+                  priority={true}
+                  src={picture.imageURL} 
+                  alt={picture.description} 
+                  width={IMAGE_WIDTH} 
+                  height={IMAGE_HEIGHT}
+                  onLoadingComplete={() => handleImageLoad(picture._id)}
+                />
               </Link>
-
-              {/* Picture metadata
-              <p className="pointer-events-none mt-2 block truncate text-sm font-medium text-gray-900">{picture.album_id}</p>
-              <p className="pointer-events-none block text-sm font-medium text-gray-500">{picture.description}</p>
-              */}
-            </li>
+            </div>
           ))}
-        </ul>
+        </Masonry>
       </div>
     </div>
   );

@@ -48,7 +48,7 @@ export default function PreviewPage() {
             display: flex;
             flex-direction: column;
             width: 400px;
-            height: 112px;
+            height: 36px;
             border-radius: 6px;
             justify-content: space-between;
           }

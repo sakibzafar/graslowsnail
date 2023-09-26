@@ -50,7 +50,6 @@ const SimplePicturePage: React.FC<SimplePicturePageProps> = ({
   // Main return function to display picture information.
   return (
     <div className="flex flex-col items-center justify-center pt-20 px-6">
-    <h1 className="text-4xl font-bold mb-6">{picture.title}</h1>
     <div className="">
       {/* Use Next.js Image component for optimized image loading */}
       <Image
@@ -62,17 +61,17 @@ const SimplePicturePage: React.FC<SimplePicturePageProps> = ({
       />
     </div>
     <div className="mt-6 text-center">
-      {/* Displaying additional picture information */}
-      <p className="text-lg font-medium mb-2">Description: {picture.description}</p>
-      <p className="text-lg font-medium mb-2">Album: {picture.album_id}</p>
-      <p className="text-lg font-medium mb-2">Print Size: {picture.printSize}</p>
-      <p className="text-lg font-medium mb-2">Price: ${picture.price}</p>
-       {/* Using conditional styling for the status based on whether the picture is sold or not */}
-       <p className={`text-lg font-medium mb-2 ${picture.isSold ? 'text-red' : 'text-green'}-${500}`}>Status: {picture.isSold ? 'Sold' : 'Available'}</p> 
-       <p>would you like to own this picture? </p>
-       <p className='mb-3'>checkout below!</p>
+        {/* Displaying additional picture information */}
+        <p className="text-lg font-bold ">{picture.title}</p>
+        <p className="text-md font-light mb-2">Price: ${picture.price}</p>
+        <p className="text-sm font-light mb-2">Printed on  Hahnemühle  Photo Rag Baryta.  315 gsm.  1 00% Cotton  White.  High Gloss</p>
+        <p className="text-sm font-light mb-2">Exclusive Limited Edition individual print from my "{picture.album_id}" collection.</p>
+        <p className="text-sm font-light mb-5">Every picture available for purchase on this website is an exclusive 1 of 1 print, once sold, it will never be reprinted.</p>
+        <p className="text-sm font-light">Checkout securely with Stripe below.</p>
      </div> 
      <CheckoutButton />
+       {/* Using conditional styling for the status based on whether the picture is sold or not */}
+       <p className={`text-lg font-medium mb-2 ${picture.isSold ? 'text-red' : 'text-green'}-${500}`}>Status: {picture.isSold ? 'Sold' : 'Available'}</p> 
 </div>
 
   );
