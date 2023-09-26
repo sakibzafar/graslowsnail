@@ -1,29 +1,68 @@
 // pages/faq.tsx
+'use client'
+
+import React from 'react';
+import { useForm, ValidationError } from '@formspree/react';
 
 export default function FAQ() {
+  const [state, handleSubmit] = useForm("mknlqlgq");
+
+  if (state.succeeded) {
+      return(
+      <div className="flex justify-center items-center min-h-screen">
+          <div className="w-full max-w-md bg-green-100 p-6 rounded-xl shadow-md">
+            <p className="text-center font-medium text-green-700">Thanks for reaching out! Ill get back to you soon!</p>
+          </div>
+      </div>
+      );
+  }
+
   return (
-    <div className="container mx-auto px-4 mt-20">
-        <h1 className="text-3xl font-bold mb-8">FAQs</h1>
+    <div className="flex justify-center items-center min-h-screen ">
+      <form onSubmit={handleSubmit} className="w-full max-w-md bg-gray-100 p-6 rounded-xl shadow-md">
+        <div className="mb-4">
+          <label htmlFor="email" className="block text-sm font-medium text-gray-600 mb-2">
+            Email Address
+          </label>
+          <input
+            id="email"
+            type="email" 
+            name="email"
+            className="w-full p-2 border rounded-md"
+          />
+          <ValidationError 
+            prefix="Email" 
+            field="email"
+            errors={state.errors}
+            className="text-red-600 text-xs mt-1"
+          />
+        </div>
+        
+        <div className="mb-4">
+          <label htmlFor="message" className="block text-sm font-medium text-gray-600 mb-2">
+            Message
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            rows={4}
+            className="w-full p-2 border rounded-md"
+          />
+          <ValidationError 
+            prefix="Message" 
+            field="message"
+            errors={state.errors}
+            className="text-red-600 text-xs mt-1"
+          />
+        </div>
 
-        <section className="faq-section space-y-6">
-          <div className="faq-item">
-            <h2 className="text-xl font-semibold">1. What is GRASLOWSNAIL.com?</h2>
-            <p className="text-gray-600">GRASLOWSNAIL.com is a platform where we showcase unique and breathtaking photos captured by [Your Name/Your Brand]. Users can view these photos and have the option to purchase a physical copy of any photo they admire.</p>
-          </div>
-          
-          <div className="faq-item">
-            <h2 className="text-xl font-semibold">2. How can I purchase a photo?</h2>
-            <p className="text-gray-600">Simply browse through our gallery, select the photo you'd like to purchase, choose the desired size, and click on the "Buy Now" or "Add to Cart" button. You'll be guided through a secure checkout process powered by Stripe.</p>
-          </div>
-
-          {/* ... Continue with other questions and answers ... */}
-
-          <div className="faq-item">
-            <h2 className="text-xl font-semibold">3. I have a specific question not covered here. How can I reach out?</h2>
-            <p className="text-gray-600">We're here to help! Feel free to contact us at <a href="mailto:support@yourwebapp.com" className="text-blue-500 underline">support@yourwebapp.com</a>, and our team will get back to you as soon as possible.</p>
-          </div>
-        </section>
+        <div className="flex justify-end">
+          <button type="submit" disabled={state.submitting} className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md">
+            Submit
+          </button>
+        </div>
+      </form>
     </div>
-  )
+  );
 }
 
