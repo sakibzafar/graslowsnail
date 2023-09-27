@@ -3,7 +3,7 @@ import Link from 'next/link';
 export default function Success() {
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex items-center justify-center ">
       
       {/* Card container */}
       <div className="bg-white p-8 rounded-lg shadow-md w-96">

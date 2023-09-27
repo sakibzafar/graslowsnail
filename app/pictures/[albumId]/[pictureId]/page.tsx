@@ -73,8 +73,9 @@ return (
   <div className="mt-6 text-center w-80">
   {/* Displaying additional picture information */}
   <p className="text-4xl  font-regular font-['Koulen']">{picture.title}</p>
-  <p className="text-md font-light mb-2">Price: ${picture.price}</p>
-  <p className="text-sm font-light mb-2">Each print will incluce a frame and be ready to be hung up </p>
+  <p className="text-lg font-light mb-2">${picture.price}</p>
+  <p className="text-sm font-light mb-2">Exclusive Limited Edition individual print from the NYC Collection. Printed on Hahnemühle Photo Rag Baryta. 
+315 gsm. 100% Cotton White High Gloss.</p>
   <p className="text-sm font-light mb-5">Every picture available for purchase on this website is an exclusive 1 of 1 print, once sold, it will never be reprinted.</p>
     <p className="text-sm font-light mb-4">Checkout securely with Stripe below.</p>
   </div> 
