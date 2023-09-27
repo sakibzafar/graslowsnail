@@ -25,7 +25,9 @@ export default function CONTACT() {
   }
 
   return (
-      <div className="flex justify-center items-center min-h-screen ">
+    <div className="container mx-auto px-4 mt-20 mb-20">
+        <h1 className="text-3xl mb-20 text-center">Don't be shy</h1>
+      <div className="flex justify-center">
         <form onSubmit={handleSubmit} className="w-full max-w-md bg-gray-100 p-6 rounded-xl shadow-md">
           <div className="mb-4">
             <label htmlFor="email" className="block text-sm font-medium text-gray-600 mb-2">
@@ -75,6 +77,7 @@ export default function CONTACT() {
             </button>
           </div>
         </form>
+      </div>
       </div>
 
   );

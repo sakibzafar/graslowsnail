@@ -37,37 +37,15 @@ export default function PreviewPage() {
   };
 
   return (
-    <section>
-      <button type="button" role="link" onClick={handleCheckout}>
-        Checkout
-      </button>
-      <style jsx>
-        {`
-          section {
-            background: #ffffff;
-            display: flex;
-            flex-direction: column;
-            width: 400px;
-            height: 36px;
-            border-radius: 6px;
-            justify-content: space-between;
-          }
-          button {
-            height: 36px;
-            background: #556cd6;
-            border-radius: 4px;
-            color: white;
-            border: 0;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            box-shadow: 0px 4px 5.5px 0px rgba(0, 0, 0, 0.07);
-          }
-          button:hover {
-            opacity: 0.8;
-          }
-        `}
-      </style>
-    </section>
+    <section className="bg-white flex flex-col w-96 h-9 rounded-md justify-between">
+  <button 
+    type="button" 
+    role="link" 
+    onClick={handleCheckout} 
+    className="h-9 bg-black text-white font-semibold cursor-pointer transition-opacity duration-200 hover:opacity-80 shadow-md">
+    PURCHASE 
+  </button>
+</section>
+
   );
 }
