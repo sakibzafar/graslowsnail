@@ -1,6 +1,6 @@
 import { PictureList } from '@/components';
 
-export function PicturesInAlbum({
+export default function PicturesInAlbum({
   params: { albumId },
 }: {
   params: {
@@ -14,6 +14,4 @@ export function PicturesInAlbum({
     </div>
   );
 }
-
-export default PicturesInAlbum;
 

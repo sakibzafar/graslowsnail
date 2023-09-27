@@ -1,13 +1,11 @@
-// Import NextApiRequest for type-checking the request object
 // Import NextResponse for sending the response object
-import { NextApiRequest } from 'next';
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
 // Initialize the Stripe library with your secret key from environment variables
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 // Define an async function to handle POST requests
-export const POST = async (req: NextApiRequest) => {
+export const POST = async (req: NextRequest) => {
   try {
     // Create a Stripe Checkout session
     const session = await stripe.checkout.sessions.create({
@@ -39,5 +37,3 @@ export const POST = async (req: NextApiRequest) => {
     );
   }
 }
-
-

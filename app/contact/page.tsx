@@ -6,7 +6,7 @@ import { useForm, ValidationError } from '@formspree/react';
 import Head from 'next/head';
 import ReCAPTCHA from 'react-google-recaptcha';
 
-export default function CONTACT() {
+export default function Contact() {
   const [state, handleSubmit] = useForm("mknlqlgq");
   const [captchaValue, setCaptchaValue] = useState(null);
 
@@ -26,7 +26,7 @@ export default function CONTACT() {
 
   return (
     <div className="container mx-auto px-4 mt-20 mb-20">
-        <h1 className="text-3xl mb-20 text-center">Don't be shy</h1>
+  <p className="text-4xl  font-regular mb-8 text-center font-['Koulen']">Don't be shy</p>
       <div className="flex justify-center">
         <form onSubmit={handleSubmit} className="w-full max-w-md bg-gray-100 p-6 rounded-xl shadow-md">
           <div className="mb-4">

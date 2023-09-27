@@ -74,10 +74,10 @@ return (
   {/* Displaying additional picture information */}
   <p className="text-4xl  font-regular font-['Koulen']">{picture.title}</p>
   <p className="text-lg font-light mb-2">${picture.price}</p>
-  <p className="text-sm font-light mb-2">Exclusive Limited Edition individual print from the NYC Collection. Printed on Hahnemühle Photo Rag Baryta. 
-315 gsm. 100% Cotton White High Gloss.</p>
-  <p className="text-sm font-light mb-5">Every picture available for purchase on this website is an exclusive 1 of 1 print, once sold, it will never be reprinted.</p>
-    <p className="text-sm font-light mb-4">Checkout securely with Stripe below.</p>
+  <p className="text-sm font-light mb-2">Exclusive Limited Edition individual print from the "{picture.album_id}" Collection. </p>
+  <p className="text-sm font-light mb-6">Every photo available for purchase on this site is a one-of-one print. It comes framed and ready to be displayed. Once sold, this particular print will never be reprinted.</p>
+    <p className="text-sm font-light mb-2">Securely checkout with Stripe below.</p>
+    <p className="text-xs font-light mb-4">(All proceeds are invested in the printing, framing, and shipping of the print.)</p>
   </div> 
 
   {/* Using conditional styling for the status based on whether the picture is sold or not */}
