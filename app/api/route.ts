@@ -27,7 +27,7 @@ export const POST = async (req: NextRequest) => {
     
     // If the session is successfully created, return a JSON response with the session ID
     return NextResponse.json({ sessionId: session.id });
-  } catch (err) {
+  } catch (err: any) {
     // Log any errors for debugging
     console.log(err);
     // If there's an error, return it in the response along with the appropriate status code

@@ -4,7 +4,7 @@ const lambdaURL = process.env.NEXT_PUBLIC_GET_ALBUMTHUMBNAIL_LAMBDA_URL
 export async function fetchAlbumThumbNails() {
   try {
     // Fetch album thiumbnails form API
-    const response = await fetch(lambdaURL)
+    const response = await fetch(lambdaURL!)
 
       // parse the response
       const result = await response.json();

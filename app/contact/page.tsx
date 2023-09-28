@@ -10,7 +10,7 @@ export default function Contact() {
   const [state, handleSubmit] = useForm("mknlqlgq");
   const [captchaValue, setCaptchaValue] = useState(null);
 
-   const onCaptchaChange = (value) => {
+  const onCaptchaChange = (value:any) => {
     setCaptchaValue(value);
   };
 
@@ -67,7 +67,7 @@ export default function Contact() {
 
           {/* Add reCAPTCHA */}
           <ReCAPTCHA
-            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
             onChange={onCaptchaChange}
           />
 

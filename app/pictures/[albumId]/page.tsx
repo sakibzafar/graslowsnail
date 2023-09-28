@@ -4,7 +4,7 @@ export default function PicturesInAlbum({
   params: { albumId },
 }: {
   params: {
-    albumId: string;
+    albumId: any;
   };
 }){
 

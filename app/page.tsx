@@ -1,7 +1,7 @@
 // page.tsx is the ui for the / path
 import Image from 'next/image'
 import Link from 'next/link';
-import { Hero, AlbumList } from '@/components';
+import { AlbumList } from '@/components';
 
 export default function Home() {
   return (
