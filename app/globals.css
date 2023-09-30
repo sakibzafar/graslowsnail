@@ -65,4 +65,39 @@
   margin-bottom: 8px;
 }
 
+.responsiveImageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Ensures nothing spills out if the image grows beyond the container */
+  width: 80vw;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+@media (min-width: 640px) { /* sm */
+  .responsiveImageContainer {
+    width: 600px;
+  }
+}
+
+@media (min-width: 768px) { /* md */
+  .responsiveImageContainer {
+    width: 750px;
+  }
+}
+
+@media (min-width: 1024px) { /* lg */
+  .responsiveImageContainer {
+    width: 966px;
+  }
+}
+
+.responsiveImageContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
