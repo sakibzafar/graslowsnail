@@ -62,7 +62,7 @@ const AlbumList = () => {
               
                   {/* Hover effect for the overlay */}
                   <div className={`absolute inset-0 flex items-center justify-center bg-white bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-300 ${loadedImages[picture._id] ? 'opacity-100' : 'opacity-0'}`}>
-                    <div className="text-center text-white text-[40px] font-normal font-['Koulen']">{picture.album_id}</div>
+                    <div className="shadow-text-black text-center text-white text-[40px] font-normal font-['Koulen']">{picture.album_id}</div>
                   </div>
                 </div>
               </Link>

@@ -101,3 +101,6 @@
   object-fit: cover;
 }
 
+.shadow-text-black {
+  text-shadow: .5px .5px 0 black, -.5px -.5px 0 black, .5px -.5px 0 black, -.5px .5px 0 black;
+}

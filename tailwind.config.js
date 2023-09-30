@@ -18,6 +18,15 @@ module.exports = {
     },
   },
  plugins: [
+   function ({ addUtilities }) {
+      const newUtilities = {
+        '.text-stroke': {
+          '-webkit-text-stroke': '2px black',
+          'text-stroke': '2px black',
+        },
+      }
+      addUtilities(newUtilities, ['responsive', 'hover'])
+    },
       require('@tailwindcss/aspect-ratio'),
     ],
 }
