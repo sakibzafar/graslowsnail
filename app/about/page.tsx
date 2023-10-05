@@ -24,7 +24,7 @@ export default function About() {
          <p className="text-md font-light mb-2"> Born and raised in Houston, I've discoverd the art of analog photography over the last two years.   </p>
            <p className="text-md font-light mb-2">This journey has allowed me to capture moments from my life, which I'm excited to share with you! </p>
            <p className="text-md font-light mb-4"> I created this website not only as a platform to showcase my work but also to offer these captured memories for purchase, allowing them to be displayed and appreciated by a wider audience.</p>
-           <p className="text-md font-light mb-1"> Have any questions? Dont be afraide to reach out!</p>
+           <p className="text-md font-light mb-2"> Have any questions? Dont be afraid to reach out!</p>
                     <Link href='/contact'>
                 <h1 className="text-2xl navbar-h1 font-normal font-['Koulen']">CONTACT</h1>
             </Link>

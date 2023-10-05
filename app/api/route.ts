@@ -2,10 +2,12 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 // Initialize the Stripe library with your secret key from environment variables
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const stripe = require('stripe')(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
 
 // Define an async function to handle POST requests
 export const POST = async (req: NextRequest) => {
+  const { priceId } = await req.json();//Extract the passed priceId
+
   try {
     // Create a Stripe Checkout session
     const session = await stripe.checkout.sessions.create({
@@ -13,7 +15,7 @@ export const POST = async (req: NextRequest) => {
       line_items: [
         {
           // Provide the actual Price ID of the product you want to sell
-          price: 'price_1NkxOFJ93I2Tg3FXcDgL8q6b',
+          price: priceId,
           // Define the quantity of this item
           quantity: 1,
         },

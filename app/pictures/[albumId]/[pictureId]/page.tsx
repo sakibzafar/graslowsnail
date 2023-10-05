@@ -15,6 +15,8 @@ const SimplePicturePage: React.FC<SimplePicturePageProps> = ({
 // State for tracking the loading status. Initialized as true.
 const [loading, setLoading] = useState<boolean>(true);
 
+const [wantFrame, setWantFrame] = useState(false);
+
 // Use the useEffect hook to fetch data when the component mounts.
 useEffect(() => {
   async function loadPictureData() {
@@ -61,31 +63,44 @@ const SoldOutButton = () => {
 return (
   <div className="flex flex-col items-center justify-center pt-20 px-6">
   <div className="">
-  {/* Use Next.js Image component for optimized image loading */}
     <Image
-  src={picture.imageURL}
-  alt={picture.description}
-  width={988} // Adjust this value according to your needs
-  height={800} // Adjust this value according to your needs
-  priority={true} // Loads the image with high priority
-  />
+      src={picture.imageURL}
+      alt={picture.description}
+      width={988}
+      height={800}
+      priority={true}
+    />
   </div>
   <div className="mt-6 text-center w-80">
-  {/* Displaying additional picture information */}
-  <p className="text-4xl  font-regular font-['Koulen']">{picture.title}</p>
-  <p className="text-lg font-light mb-2">${picture.price}</p>
-  <p className="text-sm font-light mb-2">Exclusive Limited Edition individual print from the "{picture.album_id}" Collection. </p>
-  <p className="text-sm font-light mb-6">Every photo available for purchase on this site is a one-of-one print. It comes framed and ready to be displayed. Once sold, this particular print will never be reprinted.</p>
-    <p className="text-sm font-light mb-2">Securely checkout with Stripe below.</p>
-    <p className="text-xs font-light mb-4">(All proceeds are invested in the printing, framing, and shipping of the print.)</p>
-  </div> 
+    <p className="text-4xl font-regular font-['Koulen']">{picture.title}</p>
 
-  {/* Using conditional styling for the status based on whether the picture is sold or not */}
-  {picture.isSold ? <SoldOutButton /> : <CheckoutButton />}
+    {/* Only show the price and frame option if the picture is not sold */}
+    {!picture.isSold && (
+      <>
+        <p className="text-lg font-light mb-2">${wantFrame ? '54.99' : '24.99'}</p>
+        <div className="text-sm flex items-center mb-2">
+          <label className="flex items-center cursor-pointer text-gray-700">
+            <input
+              type="checkbox"
+              className="form-checkbox h-4 w-4 text-indigo-600 rounded"
+              checked={wantFrame}
+              onChange={() => setWantFrame(!wantFrame)}
+            />
+            <span className="ml-2">Do you want to add a frame? +$35</span>
+          </label>
+        </div>
+      </>
+    )}
+
+    <p className="text-sm font-light mb-2">Exclusive Limited Edition individual print from the "{picture.album_id}" Collection.</p>
+    <p className="text-sm font-light mb-6">Every photo available for purchase on this site is a one-of-one print. It comes framed and ready to be displayed. Once sold, this particular print will never be reprinted.</p>
 
   </div>
 
+  {picture.isSold ? <SoldOutButton /> : <CheckoutButton wantFrame={wantFrame} />}
+</div>
 );
+
 };
 
 export default SimplePicturePage;
